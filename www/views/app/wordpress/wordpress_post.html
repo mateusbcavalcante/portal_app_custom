@@ -7,9 +7,9 @@
       </p>
     </div>
     <div class="post-content item item-text-wrap" post-content>
-       <pre-img ratio="_1_1" helper-class="square-image">
-          <img class="category-image" ng-src="{{post.imageSrc}}" spinner-on-load>
-        </pre-img>
+      <pre-img ratio="_1_1" helper-class="square-image">
+          <img class="category-image" ng-src="{{post.imageSrc}}" style="width: 360px; max-height: 300px" spinner-on-load>
+      </pre-img>
 
       <p class="post-text" dynamic-anchor-fix ng-bind-html="post.content.rendered | rawHtml"></p>
     </div>

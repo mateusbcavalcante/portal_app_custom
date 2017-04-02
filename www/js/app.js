@@ -26,7 +26,7 @@ angular.module('your_app_name', [
 
 .run(function($ionicPlatform, $rootScope, $ionicConfig, $timeout) {
 
-  $ionicPlatform.on("deviceready", function(){
+  $ionicPlatform.ready(function() {
     // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
     // for form inputs)
     if(window.cordova && window.cordova.plugins.Keyboard) {
@@ -37,14 +37,8 @@ angular.module('your_app_name', [
     }
 
     if (navigator && navigator.splashscreen) {
-     navigator.splashscreen.show();
-    } 
-
-    setTimeout(function() {
-      navigator.splashscreen.hide();
-    }, 2000);
-
-    PushNotificationsService.register();
+      navigator.splashscreen.show();
+    }
   });
  
 
@@ -73,11 +67,6 @@ angular.module('your_app_name', [
     	console.log("enabling swipe back and restoring transition to platform default", $ionicConfig.views.transition());
     }
   });
-
-  $ionicPlatform.on("resume", function(){
-    PushNotificationsService.register();
-  });
-
 })
 
 
@@ -119,16 +108,6 @@ angular.module('your_app_name', [
     views: {
       'menuContent': {
         templateUrl: "views/app/layouts/layouts.html"
-      }
-    }
-  })
-
-  .state('app.tinder-cards', {
-    url: "/layouts/tinder-cards",
-    views: {
-      'menuContent': {
-        templateUrl: "views/app/layouts/tinder-cards.html",
-        controller: 'TinderCardsCtrl'
       }
     }
   })
